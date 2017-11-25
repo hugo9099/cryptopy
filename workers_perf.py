@@ -4,7 +4,7 @@ import requests
 from config import *
 
 
-WIDTH = 56
+WIDTH = 70
 
 
 def get_global_performance(wallet):
@@ -44,6 +44,7 @@ def get_worker_performance(wallet):
         row += worker + " " * sp
         row += " " * 5
         row += "{:.2f}".format(reported) + " " * 8
+        row += "{:.2f}".format(current) + " " * 8
         row += "{:.2f}".format(average) + " " * 8
         row += "{:.2f}".format(performance) + " %"
         print row
@@ -56,7 +57,7 @@ def main():
     print "-" * WIDTH
     get_global_performance(wallet)
     print "-" * WIDTH
-    print "|   Worker   |   Reported   |   Average   |   % Perf   |"
+    print "|   Worker   |   Reported   |   Current   |   Average   |   % Perf   |"
     print "-" * WIDTH
     get_worker_performance(wallet)
     print "-" * WIDTH
